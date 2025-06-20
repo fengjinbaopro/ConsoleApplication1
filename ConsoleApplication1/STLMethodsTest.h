@@ -1,0 +1,9 @@
+#pragma once
+int testVectors();
+int testAlgorithm();
+int testString();
+int testCinCout();
+int testVariables();
+int testFileWriteStream();
+int testFileReadStream();
+int testFileWriteAppendStream();

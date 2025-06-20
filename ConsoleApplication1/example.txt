@@ -1,0 +1,2 @@
+Hello, World! this is testFileWriteStream' writed text
+Appending this line to the file.
