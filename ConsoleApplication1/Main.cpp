@@ -11,6 +11,13 @@ using namespace std;
 #include "WebApplyTest.h"
 #include "STLMethodsTest.h"
 #include "ConstructorTest.h"
+#include "StaticTest.h"
+#include "MemoryTest.h"
+#include "OperatorTest.h"
+#include "CastTest.h"
+#include "JudgeMethodTest.h"
+#include "ModifyTest.h"
+#include "FileAndStream.h"
 
 int main()
 {
@@ -54,7 +61,21 @@ int main()
     testFileWriteAppendStream();
     testFileReadStream();
     testContructor();
+    testStatic();
+    testArray();
+    testMemory();
+    testOperatorPlus();
+    testStaticCast();
+    testDynamicCast();
+    testSwitch();
+    Example example;
+    example.set_value(10);
+    example.get_value();
+
+    //testFileStream();
+    testFileReadStream();
 
     cout << "main thread end " << endl;
+    cin.get();
     return 0;
 }

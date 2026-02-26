@@ -21,8 +21,8 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{51b18efb-7b33-4e80-b055-2e93c0727786}</ProjectGuid>
-    <RootNamespace>ConsoleApplication1</RootNamespace>
+    <ProjectGuid>{b0d41987-8f79-4cf6-88ad-2cdd241c73c3}</ProjectGuid>
+    <RootNamespace>MyAlgotithm</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -93,8 +93,6 @@
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
-      <EnableCOMDATFolding>true</EnableCOMDATFolding>
-      <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
   </ItemDefinitionGroup>
@@ -121,55 +119,11 @@
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
-      <EnableCOMDATFolding>true</EnableCOMDATFolding>
-      <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="CastTest.cpp" />
-    <ClCompile Include="ConsoleApplication1.cpp" />
-    <ClCompile Include="ConstructorTest.cpp" />
-    <ClCompile Include="DesignModeTest.cpp" />
-    <ClCompile Include="JudgeMethodTest.cpp" />
-    <ClCompile Include="Main.cpp" />
-    <ClCompile Include="MemoryTest.cpp" />
-    <ClCompile Include="ModifierTest.cpp" />
-    <ClCompile Include="NameSpaceTest.cpp" />
-    <ClCompile Include="someSupplement.cpp" />
-    <ClCompile Include="StaticTest.cpp" />
-    <ClCompile Include="STLMethodsTest.cpp" />
-    <ClCompile Include="StringTest.cpp" />
-    <ClCompile Include="TemplateTest.cpp" />
-    <ClCompile Include="testException.cpp" />
-    <ClCompile Include="TestMemoryAlloc.cpp" />
-    <ClCompile Include="ThreadsTest.cpp" />
-    <ClCompile Include="Two.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="CastTest.h" />
-    <ClInclude Include="CommonInclude.h" />
-    <ClInclude Include="ConstructorTest.h" />
-    <ClInclude Include="DesignModeTest.h" />
-    <ClInclude Include="Exception.h" />
-    <ClInclude Include="JudgeMethodTest.h" />
-    <ClInclude Include="LambdaTest.h" />
-    <ClInclude Include="MemoryTest.h" />
-    <ClInclude Include="ModifyTest.h" />
-    <ClInclude Include="NameSpace.h" />
-    <ClInclude Include="OperatorTest.h" />
-    <ClInclude Include="PreDealTest.h" />
-    <ClInclude Include="SignalTest.h" />
-    <ClInclude Include="StaticTest.h" />
-    <ClInclude Include="STLMethodsTest.h" />
-    <ClInclude Include="StorageClassTest.h" />
-    <ClInclude Include="StringTest.h" />
-    <ClInclude Include="TemplateTest.h" />
-    <ClInclude Include="FileAndStream.h" />
-    <ClInclude Include="ThreadTest.h" />
-    <ClInclude Include="Two.h" />
-    <ClInclude Include="WebApplyTest.h" />
-    <ClInclude Include="WindowThreadTest.h" />
+    <ClCompile Include="MyAlgotithm.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

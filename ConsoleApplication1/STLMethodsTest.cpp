@@ -2,8 +2,42 @@
 #include <vector>
 #include "STLMethodsTest.h"
 #include <fstream>
+#include <array>
 using namespace std;
 
+void testArray() {
+    array<int, 10> myArray = { 1,2,3,4,5 };
+    // 使用范围 for 循环遍历数组
+    for (const auto& value : myArray) {
+        std::cout << value << " ";
+    }
+    std::cout << std::endl;
+
+    // 使用索引访问数组元素
+    std::cout << "Element at index 2: " << myArray.at(2) << std::endl;
+
+    // 获取数组的大小
+    std::cout << "Array size: " << myArray.size() << std::endl;
+
+    // 修改数组元素
+    myArray[3] = 10;
+
+    // 再次遍历数组以显示修改后的元素
+    for (const auto& value : myArray) {
+        std::cout << value << " ";
+    }
+    std::cout << std::endl;
+    array<int, 10>array = { 6,7,8,9,10 };
+    myArray.swap(array);
+    cout << "after swaped:";
+    for (int& value : myArray) {
+        cout << value << " ";
+    }
+    cout << endl;
+
+
+
+}
 
 int testVectors()
 {

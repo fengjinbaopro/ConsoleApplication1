@@ -7,3 +7,4 @@ int testVariables();
 int testFileWriteStream();
 int testFileReadStream();
 int testFileWriteAppendStream();
+void testArray();

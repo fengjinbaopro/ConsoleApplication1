@@ -1,0 +1,68 @@
+有ThreadTest.h代码#pragma once
+#include "StringTest.h"
+#include <thread>
+//并发：多个任务在时间片段内交替执行，表现出同时进行的效果。
+//并行：多个任务在多个处理器或处理器核上同时执行。
+void printMessage(int count) {
+    for (int i = 0; i < count; ++i) {
+        std::cout << "Hello from thread (function pointer)!\n";
+    }
+}
+class PrintTask {
+public:
+    void operator()(int count) const {
+        for (int i = 0; i < count; ++i) {
+            std::cout << "Hello from thread (function object)!\n";
+        }
+    }
+};
+
+void testThreads() {
+    std::thread t1(printMessage, 5); // 创建线程，传递函数指针和参数
+    t1.join(); // 等待线程完成
+}
+有Main.cpp代码
+//所有的预处理器指令都是以井号（#）开头，只有空格字符可以出现在预处理指令之前。预处理指令不是 C++ 语句，所以它们不会以分号（; ）结尾。
+#include <iostream>
+using namespace std;
+#include "Exception.h"
+#include    "Two.h"
+#include "NameSpace.h"
+#include "TemplateTest.h"
+#include "PreDealTest.h"
+#include "SignalTest.h"
+#include "ThreadTest.h"
+
+int main()
+{
+    int x = 50;
+    int y = 0;
+    double z = 0;
+
+    try {
+        z = division(x, y);
+        cout << z << endl;
+    }
+    catch (const char* msg) {
+        cerr << msg << endl;
+    }
+    const int myint = 10;
+
+    cout << "testException";
+    first_space::func();
+    MyNameSpace::Say();
+
+    MyPrintSpace::Say();
+    testStack();
+    testMax();
+    testPreDeal();
+    ctrlCHandler();
+    //testRaise(SIGINT);
+
+    testThreads();
+
+    std::thread t2(PrintTask(), 5); // 创建线程，传递函数对象和参数
+    t2.join(); // 等待线程完成
+    return 0;
+}
+为什么testThreads();没有加inline也没有报错？

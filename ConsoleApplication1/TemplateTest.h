@@ -4,7 +4,7 @@
 #include <stdexcept>
 using namespace std;
 //根据C++模板类的要求，模板类的成员函数定义必须与声明在同一个头文件中，否则会导致链接错误。
-template <class T>
+template <typename T>
 class Stack {
 private:
     std::vector<T> elems;

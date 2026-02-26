@@ -36,7 +36,7 @@ public:
         box.height = this->height + b.height;
         return box;
     }
-private:
+public:
     double length;      // 长度
     double breadth;     // 宽度
     double height;      // 高度
@@ -52,11 +52,11 @@ int testOperatorPlus()
     // Box1 详述
     Box1.setLength(6.0);
     Box1.setBreadth(7.0);
-    Box1.setHeight(5.0);
+    Box1.setHeight(8.0);
 
     // Box2 详述
-    Box2.setLength(12.0);
-    Box2.setBreadth(13.0);
+    Box2.setLength(10.0);
+    Box2.setBreadth(10.0);
     Box2.setHeight(10.0);
 
     // Box1 的体积
@@ -73,6 +73,7 @@ int testOperatorPlus()
     // Box3 的体积
     volume = Box3.getVolume();
     cout << "Volume of Box3 : " << volume << endl;
+    cout << "l" << Box3.length << "w:" << Box3.breadth << ",h" << Box3.height << endl;
 
     return 0;
 }

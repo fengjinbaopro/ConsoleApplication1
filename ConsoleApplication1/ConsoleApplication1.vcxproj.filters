@@ -51,6 +51,24 @@
     <ClCompile Include="ConstructorTest.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="DesignModeTest.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="StaticTest.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="MemoryTest.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="CastTest.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="JudgeMethodTest.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ModifierTest.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Exception.h">
@@ -99,6 +117,27 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="CommonInclude.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="DesignModeTest.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="StaticTest.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="MemoryTest.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="CastTest.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="JudgeMethodTest.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ModifyTest.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="FileAndStream.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
