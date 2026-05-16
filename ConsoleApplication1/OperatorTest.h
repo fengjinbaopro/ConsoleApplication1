@@ -3,6 +3,9 @@
 //重载的运算符是带有特殊名称的函数，函数名是由关键字 operator 和其后要重载的运算符符号构成的。与其他函数一样，重载运算符有一个返回类型和一个参数列表。
 
 #include <iostream>
+#include<set>
+#include <unordered_map>
+#include <map>
 using namespace std;
 
 class Box
@@ -122,4 +125,30 @@ int testOperatorBracket()
     D2.displayDistance();
 
     return 0;
+}
+void testSet() {
+    std::set<int> mSet;
+    mSet.insert(4);
+    mSet.insert(3);
+    mSet.insert(2);
+    mSet.insert(1);
+    std::cout << "mSet content";
+    for (int num : mSet) {
+        std::cout << num << " ";
+    }
+    mSet.find(8) == mSet.end();
+    std::cout << endl;
+
+}
+
+void testMap() {
+    //有序
+    unordered_map<string, int> hashTable;
+    hashTable["apple"] = 10;
+    cout << hashTable["apple"]; // 输出 10
+
+    //无序
+    map<string, int> myMap;
+    myMap["apple"] = 10;
+    cout << myMap["apple"]; // 输出 10
 }

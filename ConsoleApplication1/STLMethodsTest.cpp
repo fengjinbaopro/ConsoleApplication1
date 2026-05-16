@@ -102,6 +102,10 @@ int testAlgorithm() {
     for (int i : vec) {
         std::cout << i << " "<<endl;
     }
+    vec.size();
+    vec.clear();
+    //vec.push_back
+
     return 0;
 }
 int testCinCout()

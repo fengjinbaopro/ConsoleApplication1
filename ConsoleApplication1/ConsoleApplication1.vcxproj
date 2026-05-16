@@ -166,6 +166,7 @@
     <ClInclude Include="StringTest.h" />
     <ClInclude Include="TemplateTest.h" />
     <ClInclude Include="FileAndStream.h" />
+    <ClInclude Include="testException.h" />
     <ClInclude Include="ThreadTest.h" />
     <ClInclude Include="Two.h" />
     <ClInclude Include="WebApplyTest.h" />

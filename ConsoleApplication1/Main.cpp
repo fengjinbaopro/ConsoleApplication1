@@ -18,6 +18,7 @@ using namespace std;
 #include "JudgeMethodTest.h"
 #include "ModifyTest.h"
 #include "FileAndStream.h"
+#include    "testException.h"
 
 int main()
 {
@@ -35,6 +36,7 @@ int main()
     const int myint = 10;
 
     cout << "testException";
+    testException();
     first_space::func();
     MyNameSpace::Say();
 
@@ -49,7 +51,7 @@ int main()
     //testThreadsT2();
     //testThreadT3();
     //testThreadRef();
-    testAllKindsThreads();
+    //testAllKindsThreads();
     testAtomic();
     //testEnvironmet();
     testVectors();
@@ -74,6 +76,7 @@ int main()
 
     //testFileStream();
     testFileReadStream();
+    testSet();
 
     cout << "main thread end " << endl;
     cin.get();

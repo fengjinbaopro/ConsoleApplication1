@@ -140,5 +140,8 @@
     <ClInclude Include="FileAndStream.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="testException.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
