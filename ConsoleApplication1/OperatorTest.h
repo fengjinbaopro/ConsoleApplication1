@@ -142,13 +142,22 @@ void testSet() {
 }
 
 void testMap() {
-    //有序
+    //无序
     unordered_map<string, int> hashTable;
     hashTable["apple"] = 10;
-    cout << hashTable["apple"]; // 输出 10
+    cout << hashTable["apple"] << ","; // 输出 10
 
-    //无序
+    //有序
     map<string, int> myMap;
     myMap["apple"] = 10;
-    cout << myMap["apple"]; // 输出 10
+    cout << myMap["apple"] << ","; // 输出 10
+
+    unordered_map<int, int> numTable;
+    numTable[1] = 2;
+    cout << numTable[1]<<",";
+    cout << numTable[0] << ",";
+    cout << numTable[2] << ",";
+
+    unordered_map<int, int>::iterator it= numTable.find(1);
+    cout << endl;
 }

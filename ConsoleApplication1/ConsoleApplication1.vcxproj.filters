@@ -69,6 +69,9 @@
     <ClCompile Include="ModifierTest.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="ByteCommon.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Exception.h">
@@ -141,6 +144,9 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="testException.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ByteCommon.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

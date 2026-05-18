@@ -71,6 +71,7 @@ int testVectors()
         cout << "value of v = " << *v << endl;
         v++;
     }
+    vector<int> mvector(vec);
     return 0;
 }
 

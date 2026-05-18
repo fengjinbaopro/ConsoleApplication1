@@ -19,6 +19,7 @@ using namespace std;
 #include "ModifyTest.h"
 #include "FileAndStream.h"
 #include    "testException.h"
+#include "ByteCommon.h"
 
 int main()
 {
@@ -77,6 +78,8 @@ int main()
     //testFileStream();
     testFileReadStream();
     testSet();
+    testMap();
+    testVecAndMat();
 
     cout << "main thread end " << endl;
     cin.get();

@@ -127,6 +127,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="ByteCommon.cpp" />
     <ClCompile Include="CastTest.cpp" />
     <ClCompile Include="ConsoleApplication1.cpp" />
     <ClCompile Include="ConstructorTest.cpp" />
@@ -147,6 +148,7 @@
     <ClCompile Include="Two.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="ByteCommon.h" />
     <ClInclude Include="CastTest.h" />
     <ClInclude Include="CommonInclude.h" />
     <ClInclude Include="ConstructorTest.h" />
