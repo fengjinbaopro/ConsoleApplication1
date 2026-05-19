@@ -80,8 +80,13 @@ int main()
     testSet();
     testMap();
     testVecAndMat();
+    testJoin();
+    testWithoutLock();
+    testMutex1();
+    testLockGuard();
+    testAtomicTask();
 
     cout << "main thread end " << endl;
-    cin.get();
+    //cin.get();
     return 0;
 }

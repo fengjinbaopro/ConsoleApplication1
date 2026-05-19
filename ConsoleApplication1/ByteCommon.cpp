@@ -1,4 +1,10 @@
 #include "ByteCommon.h"
+#include <thread>    // 线程
+#include <mutex>     // 互斥锁
+#include <condition_variable> // 条件变量
+#include <atomic>    // 原子变量
+#include <future>    // 异步获取结果
+#include <chrono>    // 延时
 
 using namespace std;
 #ifndef M_PI
@@ -57,7 +63,7 @@ Vec3& Vec3::operator/=(float s)
     return *this;
 }
 
-float dot(const Vec3& a, const Vec3& b)
+const float dot(const Vec3& a, const Vec3& b)
 {
     return a.x * b.x + a.y * b.y + a.z * b.z;
 }
@@ -241,6 +247,7 @@ Mat4 rotateZ(float rad)
     mat.m[1][1] = c;
     return mat;
 }
+
 void testVecAndMat() {
     // ==========================
 // 主函数：全部演示
@@ -268,4 +275,117 @@ void testVecAndMat() {
     Vec3 pos(1, 0, 0);
     Vec3 newPos = finalMat * pos;
     cout << "变换后坐标: " << newPos << endl;
+}
+
+MyVec MyVec::operator+(const MyVec& vec) const
+{
+    return MyVec(x+vec.x,y+vec.y,z+vec.z);
+}
+void func(int num)
+{
+    cout << "线程执行：" << num << endl;
+}
+void testJoin() {
+    thread t1(func, 1000); // 创建线程并启动
+    t1.join();            // 阻塞等待线程结束
+    // t1.detach();       // 分离线程，后台运行，无需等待
+}
+class Test
+{
+public:
+    void work(int x)
+    {
+        cout << "成员函数线程：" << x << endl;
+    }
+};
+
+void testClassThread()
+{
+    Test t;
+    // 格式：&类名::函数名, 对象, 参数
+    thread th(&Test::work, &t, 666);
+    th.join();
+}
+struct Functor
+{
+    void operator()(int val)
+    {
+        cout << "函数对象线程：" << val << endl;
+    }
+};
+
+void testFunctor()
+{
+    thread th(Functor(), 888);
+    th.join();
+}
+
+mutex mtx1;
+int cnt = 0;
+int mutcnt = 0;
+
+void addTaskWithoutLock()
+{
+    for (int i = 0; i < 100000; ++i)
+    {
+        cnt++;
+    }
+}
+void addTask()
+{
+    for (int i = 0; i < 100000; ++i)
+    {
+        mtx1.lock();       // 加锁
+        mutcnt++;
+        mtx1.unlock();     // 解锁
+    }
+}
+void testWithoutLock()
+{
+    thread t1(addTaskWithoutLock);
+    thread t2(addTaskWithoutLock);
+    t1.join();
+    t2.join();
+    cout << "testWithoutLock 结果：" << cnt << endl;
+}
+void testMutex1()
+{
+    thread t1(addTask);
+    thread t2(addTask);
+    t1.join();
+    t2.join();
+    cout << "testMutex1 结果：" << mutcnt << endl;
+}
+int guardCnt = 0;
+void addTaskWithlock_guard()
+{
+    for (int i = 0; i < 10000; ++i)
+    {
+        lock_guard<mutex> lg(mtx1); // 自动加锁
+        guardCnt++;
+        // 离开作用域自动解锁
+    }
+}
+void testLockGuard()
+{
+    thread t1(addTaskWithlock_guard);
+    thread t2(addTaskWithlock_guard);
+    t1.join();
+    t2.join();
+    cout << "testLockGuard 结果：" << guardCnt << endl;
+}
+
+atomic<int> atomic_num = 0;
+void atomicTask()
+{
+    for (int i = 0; i < 10000; i++) atomic_num++;
+}
+
+void testAtomicTask()
+{
+    thread t1(atomicTask);
+    thread t2(atomicTask);
+    t1.join();
+    t2.join();
+    cout << "testAtomicTask 结果：" << atomic_num << endl;
 }

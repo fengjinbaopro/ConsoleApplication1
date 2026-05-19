@@ -13,7 +13,7 @@ extern std::string result1;
 //s1 += s2;
 //s1 += "!"; // s1 ±äÎª "Hello, World!"
 
-void testStringMethods() {
+inline void testStringMethods() {
 	cout << "s1 + s2= "+result1 << endl;
 
 	std::string s = "Hello";

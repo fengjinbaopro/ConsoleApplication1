@@ -24,7 +24,7 @@ struct Vec3
 };
 
 // 向量全局运算
-float dot(const Vec3& a, const Vec3& b);
+const float dot(const Vec3& a, const Vec3& b);
 Vec3  cross(const Vec3& a, const Vec3& b);
 std::ostream& operator<<(std::ostream& os, const Vec3& v);
 
@@ -59,4 +59,18 @@ Mat4 scale(float sx, float sy, float sz);
 Mat4 rotateX(float rad);
 Mat4 rotateY(float rad);
 Mat4 rotateZ(float rad);
+class MyVec {
+    float x, y, z;
+    MyVec(float x, float y, float z) :x(x), y(y), z(z) {}
+    MyVec operator +(const MyVec& vec) const;
+};
+
+std::ostream& operator<<(std::ostream& os, const MyVec& v);
 void testVecAndMat();
+void testJoin();
+void testClassThread();
+void testFunctor();
+void testWithoutLock();
+void testMutex1();
+void testLockGuard();
+void testAtomicTask();
