@@ -20,6 +20,7 @@ using namespace std;
 #include "FileAndStream.h"
 #include    "testException.h"
 #include "ByteCommon.h"
+#include "FunctorAndLambdaTest.h"
 
 int main()
 {
@@ -85,6 +86,7 @@ int main()
     testMutex1();
     testLockGuard();
     testAtomicTask();
+    testFunctorAndLambda();
 
     cout << "main thread end " << endl;
     //cin.get();

@@ -127,11 +127,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="ArrayTest.cpp" />
     <ClCompile Include="ByteCommon.cpp" />
     <ClCompile Include="CastTest.cpp" />
     <ClCompile Include="ConsoleApplication1.cpp" />
     <ClCompile Include="ConstructorTest.cpp" />
     <ClCompile Include="DesignModeTest.cpp" />
+    <ClCompile Include="FunctorAndLambdaTest.cpp" />
     <ClCompile Include="JudgeMethodTest.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="MemoryTest.cpp" />
@@ -148,12 +150,14 @@
     <ClCompile Include="Two.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="ArrayTest.h" />
     <ClInclude Include="ByteCommon.h" />
     <ClInclude Include="CastTest.h" />
     <ClInclude Include="CommonInclude.h" />
     <ClInclude Include="ConstructorTest.h" />
     <ClInclude Include="DesignModeTest.h" />
     <ClInclude Include="Exception.h" />
+    <ClInclude Include="FunctorAndLambdaTest.h" />
     <ClInclude Include="JudgeMethodTest.h" />
     <ClInclude Include="LambdaTest.h" />
     <ClInclude Include="MemoryTest.h" />

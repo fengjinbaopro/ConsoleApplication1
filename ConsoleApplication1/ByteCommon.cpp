@@ -389,3 +389,23 @@ void testAtomicTask()
     t2.join();
     cout << "testAtomicTask 结果：" << atomic_num << endl;
 }
+
+
+void test()
+{
+    // 1. 默认构造：直接上锁
+    unique_lock<mutex> lock1(mtx1);
+
+    // 2. 延迟上锁（先不锁，后面手动锁）
+    unique_lock<mutex> lock2(mtx1, defer_lock); //构造的时候再上锁
+    lock2.lock();    // 手动加锁
+    lock2.unlock();  // 手动解锁
+    lock2.lock();
+
+    // 3. 尝试上锁，拿不到不阻塞
+    unique_lock<mutex> lock3(mtx1, try_to_lock);
+    if (lock3.owns_lock())
+    {
+        // 拿到锁了
+    }
+}

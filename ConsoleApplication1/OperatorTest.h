@@ -1,11 +1,17 @@
-#pragma once
-//º¯ÊıÖØÔØ :ÔÚÍ¬Ò»¸ö×÷ÓÃÓòÄÚ£¬¿ÉÒÔÉùÃ÷¼¸¸ö¹¦ÄÜÀàËÆµÄÍ¬Ãûº¯Êı£¬µ«ÊÇÕâĞ©Í¬Ãûº¯ÊıµÄĞÎÊ½²ÎÊı£¨Ö¸²ÎÊıµÄ¸öÊı¡¢ÀàĞÍ»òÕßË³Ğò£©±ØĞë²»Í¬¡£Äú²»ÄÜ½öÍ¨¹ı·µ»ØÀàĞÍµÄ²»Í¬À´ÖØÔØº¯Êı¡£
-//ÖØÔØµÄÔËËã·ûÊÇ´øÓĞÌØÊâÃû³ÆµÄº¯Êı£¬º¯ÊıÃûÊÇÓÉ¹Ø¼ü×Ö operator ºÍÆäºóÒªÖØÔØµÄÔËËã·û·ûºÅ¹¹³ÉµÄ¡£ÓëÆäËûº¯ÊıÒ»Ñù£¬ÖØÔØÔËËã·ûÓĞÒ»¸ö·µ»ØÀàĞÍºÍÒ»¸ö²ÎÊıÁĞ±í¡£
+ï»¿#pragma once
+//å‡½æ•°é‡è½½ :åœ¨åŒä¸€ä¸ªä½œç”¨åŸŸå†…ï¼Œå¯ä»¥å£°æ˜å‡ ä¸ªåŠŸèƒ½ç±»ä¼¼çš„åŒåå‡½æ•°ï¼Œä½†æ˜¯è¿™äº›åŒåå‡½æ•°çš„å½¢å¼å‚æ•°ï¼ˆæŒ‡å‚æ•°çš„ä¸ªæ•°ã€ç±»å‹æˆ–è€…é¡ºåºï¼‰å¿…é¡»ä¸åŒã€‚æ‚¨ä¸èƒ½ä»…é€šè¿‡è¿”å›ç±»å‹çš„ä¸åŒæ¥é‡è½½å‡½æ•°ã€‚
+//é‡è½½çš„è¿ç®—ç¬¦æ˜¯å¸¦æœ‰ç‰¹æ®Šåç§°çš„å‡½æ•°ï¼Œå‡½æ•°åæ˜¯ç”±å…³é”®å­— operator å’Œå…¶åè¦é‡è½½çš„è¿ç®—ç¬¦ç¬¦å·æ„æˆçš„ã€‚ä¸å…¶ä»–å‡½æ•°ä¸€æ ·ï¼Œé‡è½½è¿ç®—ç¬¦æœ‰ä¸€ä¸ªè¿”å›ç±»å‹å’Œä¸€ä¸ªå‚æ•°åˆ—è¡¨ã€‚
 
 #include <iostream>
 #include<set>
 #include <unordered_map>
 #include <map>
+#include <cassert>â€‹
+#include <iostream>â€‹
+#include <memory>â€‹
+#include <string>â€‹
+#include <type_traits>â€‹
+#include <vector>â€‹
 using namespace std;
 
 class Box
@@ -30,7 +36,7 @@ public:
     {
         height = hei;
     }
-    // ÖØÔØ + ÔËËã·û£¬ÓÃÓÚ°ÑÁ½¸ö Box ¶ÔÏóÏà¼Ó
+    // é‡è½½ + è¿ç®—ç¬¦ï¼Œç”¨äºæŠŠä¸¤ä¸ª Box å¯¹è±¡ç›¸åŠ 
     Box operator+(const Box& b)
     {
         Box box;
@@ -40,54 +46,54 @@ public:
         return box;
     }
 public:
-    double length;      // ³¤¶È
-    double breadth;     // ¿í¶È
-    double height;      // ¸ß¶È
+    double length;      // é•¿åº¦
+    double breadth;     // å®½åº¦
+    double height;      // é«˜åº¦
 };
-// ³ÌĞòµÄÖ÷º¯Êı
+// ç¨‹åºçš„ä¸»å‡½æ•°
 int testOperatorPlus()
 {
-    Box Box1;                // ÉùÃ÷ Box1£¬ÀàĞÍÎª Box
-    Box Box2;                // ÉùÃ÷ Box2£¬ÀàĞÍÎª Box
-    Box Box3;                // ÉùÃ÷ Box3£¬ÀàĞÍÎª Box
-    double volume = 0.0;     // °ÑÌå»ı´æ´¢ÔÚ¸Ã±äÁ¿ÖĞ
+    Box Box1;                // å£°æ˜ Box1ï¼Œç±»å‹ä¸º Box
+    Box Box2;                // å£°æ˜ Box2ï¼Œç±»å‹ä¸º Box
+    Box Box3;                // å£°æ˜ Box3ï¼Œç±»å‹ä¸º Box
+    double volume = 0.0;     // æŠŠä½“ç§¯å­˜å‚¨åœ¨è¯¥å˜é‡ä¸­
 
-    // Box1 ÏêÊö
+    // Box1 è¯¦è¿°
     Box1.setLength(6.0);
     Box1.setBreadth(7.0);
     Box1.setHeight(8.0);
 
-    // Box2 ÏêÊö
+    // Box2 è¯¦è¿°
     Box2.setLength(10.0);
     Box2.setBreadth(10.0);
     Box2.setHeight(10.0);
 
-    // Box1 µÄÌå»ı
+    // Box1 çš„ä½“ç§¯
     volume = Box1.getVolume();
     cout << "Volume of Box1 : " << volume << endl;
 
-    // Box2 µÄÌå»ı
+    // Box2 çš„ä½“ç§¯
     volume = Box2.getVolume();
     cout << "Volume of Box2 : " << volume << endl;
 
-    // °ÑÁ½¸ö¶ÔÏóÏà¼Ó£¬µÃµ½ Box3
+    // æŠŠä¸¤ä¸ªå¯¹è±¡ç›¸åŠ ï¼Œå¾—åˆ° Box3
     Box3 = Box1 + Box2;
 
-    // Box3 µÄÌå»ı
+    // Box3 çš„ä½“ç§¯
     volume = Box3.getVolume();
     cout << "Volume of Box3 : " << volume << endl;
     cout << "l" << Box3.length << "w:" << Box3.breadth << ",h" << Box3.height << endl;
 
     return 0;
 }
-//º¯Êıµ÷ÓÃÔËËã·û() ¿ÉÒÔ±»ÖØÔØÓÃÓÚÀàµÄ¶ÔÏó¡£µ±ÖØÔØ() Ê±£¬Äú²»ÊÇ´´ÔìÁËÒ»ÖÖĞÂµÄµ÷ÓÃº¯ÊıµÄ·½Ê½£¬Ïà·´µØ£¬ÕâÊÇ´´½¨Ò»¸ö¿ÉÒÔ´«µİÈÎÒâÊıÄ¿²ÎÊıµÄÔËËã·ûº¯Êı¡£
+//å‡½æ•°è°ƒç”¨è¿ç®—ç¬¦() å¯ä»¥è¢«é‡è½½ç”¨äºç±»çš„å¯¹è±¡ã€‚å½“é‡è½½() æ—¶ï¼Œæ‚¨ä¸æ˜¯åˆ›é€ äº†ä¸€ç§æ–°çš„è°ƒç”¨å‡½æ•°çš„æ–¹å¼ï¼Œç›¸ååœ°ï¼Œè¿™æ˜¯åˆ›å»ºä¸€ä¸ªå¯ä»¥ä¼ é€’ä»»æ„æ•°ç›®å‚æ•°çš„è¿ç®—ç¬¦å‡½æ•°ã€‚
 class Distance
 {
 private:
-    int feet;             // 0 µ½ÎŞÇî
-    int inches;           // 0 µ½ 12
+    int feet;             // 0 åˆ°æ— ç©·
+    int inches;           // 0 åˆ° 12
 public:
-    // ËùĞèµÄ¹¹Ôìº¯Êı
+    // æ‰€éœ€çš„æ„é€ å‡½æ•°
     Distance() {
         feet = 0;
         inches = 0;
@@ -96,16 +102,16 @@ public:
         feet = f;
         inches = i;
     }
-    // ÖØÔØº¯Êıµ÷ÓÃÔËËã·û
+    // é‡è½½å‡½æ•°è°ƒç”¨è¿ç®—ç¬¦
     Distance operator()(int a, int b, int c)
     {
         Distance D;
-        // ½øĞĞËæ»ú¼ÆËã
+        // è¿›è¡Œéšæœºè®¡ç®—
         D.feet = a + c + 10;
         D.inches = b + c + 100;
         return D;
     }
-    // ÏÔÊ¾¾àÀëµÄ·½·¨
+    // æ˜¾ç¤ºè·ç¦»çš„æ–¹æ³•
     void displayDistance()
     {
         cout << "F: " << feet << " I:" << inches << endl;
@@ -142,22 +148,150 @@ void testSet() {
 }
 
 void testMap() {
-    //ÎŞĞò
+    //æ— åº
     unordered_map<string, int> hashTable;
     hashTable["apple"] = 10;
-    cout << hashTable["apple"] << ","; // Êä³ö 10
+    cout << hashTable["apple"] << ","; // è¾“å‡º 10
 
-    //ÓĞĞò
+    //æœ‰åº
     map<string, int> myMap;
     myMap["apple"] = 10;
-    cout << myMap["apple"] << ","; // Êä³ö 10
+    cout << myMap["apple"] << ","; // è¾“å‡º 10
+
 
     unordered_map<int, int> numTable;
     numTable[1] = 2;
-    cout << numTable[1]<<",";
+    cout << numTable[1] << ",";
     cout << numTable[0] << ",";
     cout << numTable[2] << ",";
 
-    unordered_map<int, int>::iterator it= numTable.find(1);
+    unordered_map<int, int>::iterator it = numTable.find(1);
     cout << endl;
-}
+};
+
+//é¢˜ç›®æè¿°
+//ç”¨ C++ å®ç°ä¸€ä¸ªæ¨¡æ¿ç±» Vectorï¼Œæ¨¡æ‹Ÿæ ‡å‡†åº“ std::vector çš„æ ¸å¿ƒåŠŸèƒ½ã€‚â€‹
+//éœ€è¦å®ç° : é»˜è®¤æ„é€ å‡½æ•°, operator[], push_back, pop_back, size, capacityã€‚â€‹
+
+
+template <typename T>
+class Vector {
+private:
+    T* data = nullptr;    // åº•å±‚æ•°ç»„
+    size_t m_size = 0;    // å½“å‰å…ƒç´ ä¸ªæ•°
+    size_t m_capacity = 0;// å®¹é‡
+
+    // æ‰©å®¹ï¼š2å€å¢é•¿
+    void reserve(size_t new_capacity) {
+        if (new_capacity <= m_capacity) return;
+
+        // ç”³è¯·æ–°å†…å­˜
+        T* new_data = new T[new_capacity];
+
+        // æ‹·è´/ç§»åŠ¨æ—§æ•°æ®
+        for (size_t i = 0; i < m_size; ++i) {
+            new_data[i] = std::move(data[i]);
+        }
+
+        // é‡Šæ”¾æ—§å†…å­˜
+        delete[] data;
+        data = new_data;
+        m_capacity = new_capacity;
+    }
+
+public:
+    // é»˜è®¤æ„é€ 
+    Vector() = default;
+
+    // ææ„å‡½æ•°
+    ~Vector() {
+        delete[] data;
+    }
+
+    // è®¿é—®è¿ç®—ç¬¦
+    T& operator[](size_t index) {
+        return data[index];
+    }
+
+    // å°¾éƒ¨æ·»åŠ ï¼ˆå³å€¼ç‰ˆæœ¬ï¼Œè§¦å‘moveï¼‰
+    void push_back(T&& val) {
+        if (m_size >= m_capacity) {
+            reserve(m_capacity == 0 ? 1 : m_capacity * 2);
+        }
+        data[m_size++] = std::move(val);
+    }
+
+    // åˆ é™¤å°¾éƒ¨
+    void pop_back() {
+        if (m_size > 0) {
+            m_size--;
+        }
+    }
+
+    size_t size() const { return m_size; }
+    size_t capacity() const { return m_capacity; }
+};
+
+// ==========================================â€‹
+// æµ‹è¯•ä»£ç  (è¯·å‹¿ä¿®æ”¹)â€‹
+// ==========================================â€‹
+
+//struct Tracker {
+//â€‹
+//static int constructed_count; â€‹
+//static int destructed_count; â€‹
+//static int copy_count; â€‹
+//static int move_count; â€‹
+//std::string name; â€‹
+//Tracker(std::string n) : name(std::move(n)) { constructed_count++; }â€‹
+//~Tracker() { destructed_count++; }â€‹
+//Tracker(const Tracker& other) : name(other.name) {
+//â€‹
+//constructed_count++; â€‹
+//copy_count++; â€‹
+//}â€‹
+//Tracker(Tracker&& other) noexcept : name(std::move(other.name)) {
+//â€‹
+//    constructed_count++; â€‹
+//    move_count++; â€‹
+//}â€‹
+//Tracker() = delete; â€‹
+//}; â€‹
+//
+//int Tracker::constructed_count = 0; â€‹
+//    int Tracker::destructed_count = 0; â€‹
+//    int Tracker::copy_count = 0; â€‹
+//    int Tracker::move_count = 0; â€‹
+//
+//    int main() {
+//    â€‹
+//    { â€‹
+//        Vector<Tracker> vec; â€‹
+//        assert(vec.size() == 0); â€‹
+//        assert(vec.capacity() == 0); â€‹
+//
+//        vec.push_back(Tracker("A")); â€‹
+//        assert(vec.size() == 1); â€‹
+//        assert(vec.capacity() == 1); â€‹
+//        assert(vec[0].name == "A"); â€‹
+//
+//        vec.push_back(Tracker("B")); â€‹
+//        assert(vec.size() == 2); â€‹
+//        assert(vec.capacity() == 2); â€‹
+//        assert(vec[1].name == "B"); â€‹
+//
+//        vec.push_back(Tracker("C")); â€‹
+//        assert(vec.size() == 3); â€‹
+//        assert(vec.capacity() == 4); â€‹
+//        assert(vec[2].name == "C"); â€‹
+//
+//        vec.pop_back(); â€‹
+//        assert(vec.size() == 2); â€‹
+//        assert(vec.capacity() == 4); â€‹
+//    }â€‹
+//
+//        assert(Tracker::constructed_count == 9); â€‹
+//
+//        std::cout << "Passed" << std::endl; â€‹
+//        return 0; â€‹
+//}
