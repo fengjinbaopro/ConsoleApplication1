@@ -235,8 +235,6 @@ void producer()
        //    如果 返回 true → 醒了，继续往下走
        //    如果 返回 false → 继续睡，再解锁等待
         // 队列满则等待
-        //44. wait 的规则：
-        //首次进去，如果谓词返回 true → 不等待，直接继续运行！
         cvPro.wait(lock, []() { return dataQue.size() < MAX_CAP && !exitFlag; });
 
         dataQue.push(i);

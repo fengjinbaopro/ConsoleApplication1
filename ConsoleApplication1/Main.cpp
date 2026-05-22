@@ -87,6 +87,9 @@ int main()
     testLockGuard();
     testAtomicTask();
     testFunctorAndLambda();
+     //死锁，会导致main主线程后边的程序无法执行。
+    //testDeadedLock();
+    testConditionOpt();
 
     cout << "main thread end " << endl;
     //cin.get();

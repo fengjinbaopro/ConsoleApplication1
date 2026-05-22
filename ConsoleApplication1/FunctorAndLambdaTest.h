@@ -1,6 +1,7 @@
 #pragma once
 #include "CommonInclude.h"
 
+//本质：重载() 运算符的类，可以像函数一样调用，可存状态、传参。
 struct FunObjNoP {
 	void operator()() {
 		cout << "FunObjNoP无参函数对象执行" << endl;

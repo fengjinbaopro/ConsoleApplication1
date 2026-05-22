@@ -96,6 +96,7 @@ int testString() {
 }
 #include <algorithm>
 #include <string>
+#include <list>
 
 int testAlgorithm() {
     vector<int> vec = { 5, 3, 1, 4, 2 };
@@ -195,3 +196,9 @@ int testFileReadStream() {
     return 0;
 }
 //sstream 是 C++ 标准库中的一个组件，它提供了一种方便的方式来处理字符串流（可以像处理流一样处理字符串）。
+void testVecAndList() {
+    list<int >alist;
+    alist.push_back(3);
+    //alist.insert(1);
+    //alist.insert
+}
