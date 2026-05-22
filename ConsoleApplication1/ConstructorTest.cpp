@@ -28,3 +28,27 @@ MainWindow::MainWindow(string name):QMainWindow("QMainWindow"), name("sunwindow"
 	cout << "MainWindow name" << name << endl;
 
 }
+void testVirtualDes()
+{
+	// 基类指针指向派生类对象
+	VBase* p = new Derive;
+	delete p;
+	NVBase* nv1 = new NVBase;
+	delete nv1;
+}
+
+void testMemoryLead()
+{
+	{
+		{
+			shared_ptr<A> a = make_shared<A>();
+			shared_ptr<B> b = make_shared<B>();
+			// 互相持有，形成循环引用
+			a->bPtr = b;
+			b->aPtr = a;
+		}
+		// 出作用域，引用计数无法归0，不会打印析构，内存泄漏
+		cout << "作用域结束\n";
+	}
+}
+

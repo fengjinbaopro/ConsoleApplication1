@@ -50,6 +50,8 @@ void testDeadedLock();
 
 int testConditionOpt();
 
+int testReadWriteLock();
+
 // ===================== ÀàÉùÃ÷ =====================
 class PrintTask {
 public:

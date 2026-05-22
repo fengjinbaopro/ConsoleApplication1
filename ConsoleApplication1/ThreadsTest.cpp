@@ -1,5 +1,6 @@
 #include "ThreadTest.h"
 #include <string>
+#include <shared_mutex>
 //ReadWrite
 
 // ===================== 全局变量 真正定义（只在这里出现一次）=====================
@@ -21,6 +22,10 @@ queue<int> dataQue;
 condition_variable cvPro; // 生产者条件变量
 condition_variable cvCon; // 消费者条件变量
 bool exitFlag = false;
+
+//读写锁
+shared_mutex rw_mtx;    // 读写锁
+int g_data = 0;         // 共享数据
 
 void safePrint(const string& str) {
     lock_guard<mutex> lock(printMtx); // 打印前加锁，保证不乱
@@ -254,7 +259,10 @@ void consumer()
 {
     while (true)
     {
-        unique_lock<mutex> lock(mtx);
+       /* wait会 自动调用 lock.unlock()
+            → 把锁让出去！
+            → 别的线程马上就能拿到这把锁！*/
+        unique_lock<mutex> lock(mtx); //默认构造时就会上锁
         // 队列为空且未结束，等待    //如果 返回 true → 醒了，继续往下走
         //如果 返回 false → 继续睡，再解锁等待
         ////1. 自动 unlock 锁 ,让出锁来给别的线程使用
@@ -288,5 +296,47 @@ int testConditionOpt()
     t1.join();
     tp1.join();
     t2.join();
+    return 0;
+}
+
+// 读线程（加读锁）
+void readFunc(int id) {
+    while (true) {
+        // 仅块内持有读锁，出块自动释放
+        {
+            shared_lock<shared_mutex> lock(rw_mtx);
+            //cout << "读线程" << id << " 读到：" << g_data << endl;
+            safePrint("读线程" + to_string(id) + "读到:" + to_string(g_data));
+        }
+        // 休眠完全脱离锁,不能拿着锁睡觉，拿着锁sleep，并不会释放锁。
+        this_thread::sleep_for(chrono::milliseconds(200));
+    }
+}
+
+// 写线程（加写锁）
+void writeFunc() {
+    while (true) {
+        // 仅块内持有写锁
+        {
+            unique_lock<shared_mutex> lock(rw_mtx);
+            g_data++;
+            //cout << "=== 写线程 修改数据为：" << g_data << " ===" << endl;
+            safePrint("=== 写线程 修改数据为：" +to_string(g_data));
+        }
+        // 休眠不放锁里
+        this_thread::sleep_for(chrono::milliseconds(1000));
+    }
+}
+
+int testReadWriteLock() {
+    thread r1(readFunc, 1);
+    thread r2(readFunc, 2);
+    thread r3(readFunc, 3);
+    thread w(writeFunc);
+
+    r1.join();
+    r2.join();
+    r3.join();
+    w.join();
     return 0;
 }

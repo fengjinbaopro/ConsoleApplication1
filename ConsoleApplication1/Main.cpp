@@ -89,7 +89,10 @@ int main()
     testFunctorAndLambda();
      //死锁，会导致main主线程后边的程序无法执行。
     //testDeadedLock();
-    testConditionOpt();
+    //testConditionOpt();
+    //testReadWriteLock();
+    testVirtualDes();
+    testMemoryLead();
 
     cout << "main thread end " << endl;
     //cin.get();
